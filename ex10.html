@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Object</h1>
+  <h2>Create</h2>
+  <script>
+    var coworkers = {
+      "programmer":"bruno",
+      "designer":"kevin"
+    };
+    document.write("programmer :"+coworkers.programmer+"<br>");
+    document.write("designer :"+coworkers.designer+"<br>");
+    // 객체에 소속된 변수(Property) 생성 >> programmer, designer, bookkeeper 등
+    coworkers.bookkeeper = "david";
+    document.write("bookkeeper :"+coworkers.bookkeeper+"<br>");
+    // 변수명 띄어쓰기 하고싶을 때 이렇게
+    coworkers["data scientist"] = "tia";
+    document.write("data scientist :"+coworkers["data scientist"]+"<br>");
+  </script>
+  <h2>Iterate</h2>
+  <script>
+    for (var key in coworkers) {
+      document.write(key +' : '+ coworkers[key]+"<br>");
+    }
+  </script>
+  <h2>Property & Method</h2>
+  <script>
+    // 개체에 소속된 함수(Method) 생성
+    coworkers.showAll = function() {
+      // 'var key in coworkers' 로 하면 객체 이름이 다른걸로 바뀌었을때 순회 못 돌기 때문에 this로 바꿔줌
+      // this >> 함수가 소속되어 있는 객체를 가리킴
+      for (var key in this) {
+        document.write(key +' : '+ this[key]+"<br>");
+      }
+    }
+    coworkers.showAll();
+  </script>
+</body>
+</html>
